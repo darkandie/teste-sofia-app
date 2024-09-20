@@ -15,6 +15,7 @@ const Title = styled.Text `
   font-weight: bold;
   font-size: 24px;
   margin-top: 40px;
+  font-family: 'NunitoSans_700Bold';
 `;
 
 const RegisterLink = styled.Text `

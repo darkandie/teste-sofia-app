@@ -1,4 +1,5 @@
-import { Container, Title } from './styles';
+import FontBold from '../FontBold';
+import { Container } from './styles';
 
 interface ButtonProps {
   title: string;
@@ -7,7 +8,7 @@ interface ButtonProps {
 export default function Button({ title }: ButtonProps) {
   return (
     <Container>
-      <Title>{title}</Title>
+      <FontBold color='#FFF'>{title}</FontBold>
     </Container>
   )
 }

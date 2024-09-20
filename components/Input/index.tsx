@@ -1,4 +1,6 @@
-import { Container, Input, Title } from './styles';
+import { View } from 'react-native';
+import FontRegular from '../FontRegular';
+import { Input, Title } from './styles';
 
 interface InputDefaultProps {
   title?: string;
@@ -7,11 +9,15 @@ interface InputDefaultProps {
 
 export default function InputDefault({title, placeholder}: InputDefaultProps) {
   return(
-    <Container>
-      {title && <Title>{title}</Title>}
+    <View>
+      {title && 
+        <Title>
+          <FontRegular>{title}</FontRegular>
+        </Title>  
+      }
       <Input 
         placeholder={placeholder}
       />
-    </Container>
+    </View>
   )
 }

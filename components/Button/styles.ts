@@ -5,11 +5,5 @@ export const Container = styled.TouchableOpacity `
   width: 100%;
   padding: 15px;
   border-radius: 40px;
+  align-items: center;
 `;
-
-export const Title = styled.Text `
-  color: #FFFFFF;
-  align-self: center;
-  font-size: 16px;
-  font-weight: bold;
-`
