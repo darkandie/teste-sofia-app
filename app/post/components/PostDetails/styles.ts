@@ -10,7 +10,7 @@ export const CardHeader = styled.View `
   margin-bottom: 10px;
 `;
 
-export const UserDataContainer = styled.View `
+export const UserDataContainer = styled.TouchableOpacity `
   flex-direction: row;
   align-items: center;
   margin-bottom: 10;

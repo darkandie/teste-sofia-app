@@ -7,6 +7,7 @@ import { generateAvatarUrl } from "@/utils/generateAvatarUrl";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { User } from "@/types/User";
 import { Post } from "@/types/Post";
+import { router } from "expo-router";
 
 interface PostDetailsProps {
   user: User;
@@ -16,10 +17,16 @@ interface PostDetailsProps {
 export default function PostDetails({user, post}: PostDetailsProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const goToProfileScreen = () => {
+    router.navigate(`/profile/${user.id}`);
+  }
+
   return (
     <Container>
       <CardHeader>
-        <UserDataContainer>
+        <UserDataContainer
+          onPress={goToProfileScreen}
+        >
           <Avatar
             source={{ uri: generateAvatarUrl(user.name) }}
           />

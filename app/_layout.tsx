@@ -3,6 +3,7 @@ import {
   useFonts,
   NunitoSans_400Regular,
   NunitoSans_700Bold,
+  NunitoSans_600SemiBold
 } from '@expo-google-fonts/nunito-sans';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -20,6 +21,7 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     NunitoSans_400Regular,
     NunitoSans_700Bold,
+    NunitoSans_600SemiBold
   });
 
   useEffect(() => {
@@ -57,6 +59,13 @@ export default function RootLayout() {
             name="post/[postId]" 
             options={{
               title: "Publicação",
+              headerBackTitleVisible: false,
+            }}
+          />
+          <Stack.Screen 
+            name="profile/[userId]" 
+            options={{
+              title: "Perfil",
               headerBackTitleVisible: false,
             }}
           />

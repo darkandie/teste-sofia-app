@@ -4,6 +4,7 @@ import { Avatar, ComentTitle, CommentHeader, Container, CommentBody, Separator }
 import FontBold from "@/components/FontBold";
 import { generateAvatarUrl } from "@/utils/generateAvatarUrl";
 import FontRegular from "@/components/FontRegular";
+import FontSemiBold from "@/components/FontSemiBold";
 
 interface CommentsProps {
   comments: Comment[];
@@ -24,7 +25,7 @@ export default function Comments({ comments } : CommentsProps) {
           <FontRegular color="#5E6064">{item.name}</FontRegular>
         </CommentHeader>
         <CommentBody>
-          <FontBold>{item.body}</FontBold>
+          <FontSemiBold>{item.body}</FontSemiBold>
         </CommentBody>
       </Container>
     )
