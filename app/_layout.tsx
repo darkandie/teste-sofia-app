@@ -49,6 +49,7 @@ export default function RootLayout() {
             headerTitleStyle: {fontSize: 16}
           }}
         />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }}/>
       </Stack>
     </ThemeProvider>
   );

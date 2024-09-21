@@ -26,7 +26,7 @@ const RegisterLink = styled.Text `
 
 export default function Login() {
   const goToRegisterScreen = () => {
-    router.navigate("/register");
+    router.navigate("/(tabs)/home");
   }
 
   return(
