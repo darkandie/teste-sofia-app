@@ -1,7 +1,14 @@
-import { Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
+import { useGetAllPostsQuery } from "@/store/services/postsApi";
 
 export default function Home() {
+  const {data, isLoading} = useGetAllPostsQuery();
+
+  console.log(data, 'dados dos posts');
+
   return(
-    <Text>Home</Text>
+    <SafeAreaView>
+      <Text>Home</Text>
+    </SafeAreaView>
   )
 }
