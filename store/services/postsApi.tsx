@@ -1,3 +1,4 @@
+import { Comment } from '@/types/Coment';
 import { Post } from '@/types/Post';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -9,10 +10,10 @@ export const postsApi = createApi({
     getAllPosts: builder.query<Post[], void>({
       query: () => '/posts',
     }),
-    getPostById: builder.query<Post, void>({
+    getPostById: builder.query<Post, string>({
       query: (id) => `/posts/${id}`,
     }),
-    getPostComments: builder.query<Post[], void>({
+    getPostComments: builder.query<Comment[], string>({
       query: (id) => `/posts/${id}/comments`,
     })
   }),

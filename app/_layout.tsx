@@ -53,6 +53,13 @@ export default function RootLayout() {
             }}
           />
           <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
+          <Stack.Screen 
+            name="post/[postId]" 
+            options={{
+              title: "Publicação",
+              headerBackTitleVisible: false,
+            }}
+          />
         </Stack>
       </ThemeProvider>
     </Provider>

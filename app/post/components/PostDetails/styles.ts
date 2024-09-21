@@ -1,18 +1,13 @@
 import styled from "styled-components/native";
 
-export const Container = styled.TouchableOpacity `
-  margin-top: 5;
-  margin-bottom: 5;
-  margin-left: 10;
-  margin-right: 10;
+export const Container = styled.View `
   padding: 15px;
-  background-color: #FFF;
-  border-radius: 16px;
 `;
 
 export const CardHeader = styled.View `
   justify-content: space-between;
   flex-direction: row;
+  margin-bottom: 10px;
 `;
 
 export const UserDataContainer = styled.View `
@@ -27,3 +22,7 @@ export const Avatar = styled.Image `
   border-radius: 20px;
   margin-right: 10px;
 `;
+
+export const ContentContainer = styled.View `
+  gap: 10px;
+`
