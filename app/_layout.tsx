@@ -5,7 +5,7 @@ import {
   NunitoSans_700Bold,
   NunitoSans_600SemiBold
 } from '@expo-google-fonts/nunito-sans';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
@@ -13,6 +13,8 @@ import { Provider } from 'react-redux';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { store } from '@/store/store';
+import { TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,6 +25,14 @@ export default function RootLayout() {
     NunitoSans_700Bold,
     NunitoSans_600SemiBold
   });
+
+  function CustomBackButton() {
+    return (
+      <TouchableOpacity onPress={() => router.back()}>
+        <Ionicons name="close" size={30} color="black" />
+      </TouchableOpacity>
+    );
+  }
 
   useEffect(() => {
     if (loaded) {
@@ -67,6 +77,14 @@ export default function RootLayout() {
             options={{
               title: "Perfil",
               headerBackTitleVisible: false,
+            }}
+          />
+          <Stack.Screen 
+            name="newPost/index" 
+            options={{
+              title: "Nova publicação",
+              headerBackTitleVisible: false,
+              headerLeft: () => <CustomBackButton />,
             }}
           />
         </Stack>

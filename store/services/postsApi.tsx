@@ -15,12 +15,20 @@ export const postsApi = createApi({
     }),
     getPostComments: builder.query<Comment[], string>({
       query: (id) => `/posts/${id}/comments`,
-    })
+    }),
+    createPost: builder.mutation({
+      query: (newPost) => ({
+        url: 'posts',
+        method: 'POST',
+        body: newPost,
+      }),
+    }),
   }),
 })
 
 export const { 
   useGetAllPostsQuery, 
   useGetPostByIdQuery,
-  useGetPostCommentsQuery
+  useGetPostCommentsQuery,
+  useCreatePostMutation
 } = postsApi;
