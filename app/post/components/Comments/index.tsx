@@ -31,12 +31,6 @@ export default function Comments({ comments } : CommentsProps) {
     )
   }
 
-  const separatorItem = () => {
-    return (
-      <Separator />
-    )
-  }
-
   return(
     <>
       <ComentTitle>
@@ -46,7 +40,8 @@ export default function Comments({ comments } : CommentsProps) {
         data={comments}
         keyExtractor={(item) => item.id}
         renderItem={({item}) => <CommentItem item={item}/>}
-        ItemSeparatorComponent={separatorItem}
+        ItemSeparatorComponent={() => <Separator />}
+        showsVerticalScrollIndicator={false}
       />
     </>
   )
