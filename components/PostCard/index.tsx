@@ -1,13 +1,12 @@
 import { Post } from "@/types/Post"
 import { Avatar, CardHeader, Container, UserDataContainer } from './styles';
-import { ActivityIndicator, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { useGetUserByIdQuery } from "@/store/services/userApi";
-import Ionicons from '@expo/vector-icons/Ionicons';
 import FontBold from "../FontBold";
 import FontRegular from "../FontRegular";
-import { useState } from "react";
 import { router } from "expo-router";
 import { generateAvatarUrl } from "@/utils/generateAvatarUrl";
+import FavoriteButton from "../FavoriteButton";
 
 interface PostCardProps {
   post: Post;
@@ -15,7 +14,6 @@ interface PostCardProps {
 
 export default function PostCard({ post }: PostCardProps) {
   const { data, isLoading } = useGetUserByIdQuery(post.userId);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const filterBody = (body: string) => {
     if(body.length < 100) {
@@ -30,6 +28,15 @@ export default function PostCard({ post }: PostCardProps) {
 
   if(isLoading) return <ActivityIndicator />;
 
+  const typeToFavorite = () => {
+    return {  
+      userId: post.userId, 
+      postId: post.id, 
+      title: post.title,
+      body: post.body
+    }
+  }
+
   return(
     <Container
       onPress={goToPost}
@@ -38,29 +45,15 @@ export default function PostCard({ post }: PostCardProps) {
         <>
           <CardHeader>
             <UserDataContainer>
-              <Avatar
+              {data.name && <Avatar
                 source={{ uri: generateAvatarUrl(data.name) }}
-              />
+              />}
               <View>
                 <FontBold>{data.name}</FontBold>
                 <FontRegular fontSize="12" color="#5E6064">{data.email}</FontRegular>
               </View>
             </UserDataContainer>
-            <TouchableOpacity
-              onPress={() => setIsFavorite(!isFavorite)}
-            >
-              {!isFavorite ? 
-                <Ionicons 
-                  size={20}
-                  name="star-outline"
-                /> :
-                <Ionicons 
-                  size={20}
-                  name="star"
-                  color={"#F3c830"}
-                />
-              }
-            </TouchableOpacity>
+            <FavoriteButton post={typeToFavorite()}/>
           </CardHeader>
           <View>
             <FontBold fontSize="20">{post.title}</FontBold>

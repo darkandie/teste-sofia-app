@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import { useCreatePostMutation } from "@/store/services/postsApi";
 import { useEffect, useState } from "react";
 import { router } from "expo-router";
+import { Alert } from "react-native";
 
 export default function NewPost() {
   const [createPost, { isLoading, isSuccess, data }] = useCreatePostMutation();
@@ -16,6 +17,7 @@ export default function NewPost() {
 
   useEffect(() => {
     if(isSuccess) {
+      Alert.alert("Post realizado com successo.")
       router.back();
     }
   }, [isSuccess])

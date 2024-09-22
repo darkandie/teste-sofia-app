@@ -26,6 +26,10 @@ const RegisterLink = styled.Text `
 
 export default function Login() {
   const goToRegisterScreen = () => {
+    router.navigate("/register");
+  }
+
+  const goToHomeScreen = () => {
     router.navigate("/(tabs)/home");
   }
 
@@ -45,6 +49,11 @@ export default function Login() {
         onPress={goToRegisterScreen}
       >
         <RegisterLink>Criar nova conta</RegisterLink>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={goToHomeScreen}
+      >
+        <RegisterLink>Entrar como visitante</RegisterLink>
       </TouchableOpacity>
     </LoginContainer>
   )

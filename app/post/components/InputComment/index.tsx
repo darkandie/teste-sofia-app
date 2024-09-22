@@ -1,4 +1,4 @@
-import { ActivityIndicator, TextInput } from "react-native";
+import { ActivityIndicator, Alert, TextInput } from "react-native";
 import { Container, InputGroup, SendCommentButton } from "./styles";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useEffect, useState } from "react";
@@ -17,12 +17,7 @@ export default function InputComment({ user, postId }: InputCommentProps) {
   const [query, setQuery] = useState('');
 
   const showToast = () => {
-    return Toast.show({
-      position: 'bottom',
-      visibilityTime: 4000,
-      type: 'success',
-      text1: 'Comentário enviado com sucesso!',
-    });
+    return Alert.alert("Comentário enviado com sucesso.")
   }
 
   const {name, email, } = user;
@@ -38,8 +33,6 @@ export default function InputComment({ user, postId }: InputCommentProps) {
       showToast();
     }
   }, [data])
-
-  console.log(data, 'data')
 
   if(isLoading) return <ActivityIndicator />;
 
