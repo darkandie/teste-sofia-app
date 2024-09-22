@@ -2,7 +2,8 @@ import InputDefault from "@/components/Input";
 import { Container, Form, ButtonContainer} from "./styles";
 import Button from "@/components/Button";
 import { useCreatePostMutation } from "@/store/services/postsApi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { router } from "expo-router";
 
 export default function NewPost() {
   const [createPost, { isLoading, isSuccess, data }] = useCreatePostMutation();
@@ -12,6 +13,12 @@ export default function NewPost() {
   const submitPost = () => {
     createPost({ title, body, userId: 1})
   }
+
+  useEffect(() => {
+    if(isSuccess) {
+      router.back();
+    }
+  }, [isSuccess])
 
   return(
     <Container>
